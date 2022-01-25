@@ -1,7 +1,7 @@
 package spring.xml.dto;
 
 public class SignupDto {
-
+	
 	private String name;
 	private String email;
 	private String mobile;
