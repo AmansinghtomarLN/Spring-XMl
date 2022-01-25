@@ -1,10 +1,13 @@
 package spring.xml.ctl;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import spring.xml.dao.UserDao;
 import spring.xml.dto.SignupDto;
 
 
@@ -27,8 +30,10 @@ public class Signup {
 	@RequestMapping("/register")
 	public String signupData(SignupDto dto, Model model) {
 		System.out.println("name is"+dto.getName());
-		model.addAttribute("dto", dto);
 		
+		ApplicationContext context = new ClassPathXmlApplicationContext("Configuration.xml");
+		UserDao user = (UserDao)context.getBean("userDao");
+		user.insert(dto);
 		return "successful";	
 	}
 	
