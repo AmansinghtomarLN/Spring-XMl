@@ -17,8 +17,9 @@ public class Test {
 		SignupDto dto = new SignupDto();
 		dto.setName("ashu");
 		dto.setEmail("adfsd@");
-		dto.setMobile("89");
+		dto.setMobile("809");
 		dto.setPassword("dfsdf");
+		
 		
 		user.insert(dto);
 		System.out.println("Insert Successful");
